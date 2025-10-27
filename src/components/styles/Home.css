@@ -146,7 +146,7 @@
   font-family: 'Poppins', sans-serif;
   word-wrap: break-word;
   position: relative;
-  white-space: nowrap; /* Add this - prevents text wrapping */
+  white-space: nowrap;
 }
 
 @media (min-width: 640px) {
@@ -172,6 +172,7 @@
     font-size: 7rem;
   }
 }
+
 /* Turbo O with Mascot */
 .turbo-o {
   position: relative;
@@ -180,7 +181,6 @@
 
 .mascot-img {
   position: absolute;
-  /* Mobile: hide mascot on small screens */
   display: none;
   top: -35%;
   right: -15%;
@@ -204,9 +204,7 @@
   margin-top: var(--space-md);
   color: var(--color-text-secondary);
   font-weight: var(--font-weight-medium);
-  /* Mobile: 18px, scales to 40px on desktop */
   font-size: clamp(1.125rem, 4vw, 2.5rem);
-  /* Fallback */
   font-size: var(--font-size-2xl);
   line-height: 1.4;
   letter-spacing: 0;
@@ -222,7 +220,6 @@
 @media (min-width: 480px) {
   .subheading1 {
     font-size: clamp(1.25rem, 4vw, 2.5rem);
-    /* Fallback */
     font-size: var(--font-size-3xl);
   }
 
@@ -237,7 +234,6 @@
   .subheading1 {
     margin-top: var(--space-lg);
     font-size: clamp(1.5rem, 3.5vw, 2.5rem);
-    /* Fallback */
     font-size: var(--font-size-4xl);
   }
 
@@ -251,7 +247,6 @@
 @media (min-width: 900px) {
   .subheading1 {
     font-size: clamp(1.75rem, 3vw, 2.5rem);
-    /* Fallback */
     font-size: 1.75rem;
     line-height: 1.3;
   }
@@ -267,7 +262,6 @@
   .subheading1 {
     max-width: 42rem;
     font-size: clamp(2rem, 2.8vw, 2.5rem);
-    /* Fallback */
     font-size: var(--font-size-5xl);
   }
 
@@ -305,23 +299,21 @@
   }
 }
 
-/* CTA Button */
+/* CTA Button - Updated with vibrant orange */
 .cta-button {
-  background: var(--color-bg-glass);
-  backdrop-filter: var(--backdrop-blur-lg) saturate(180%);
-  -webkit-backdrop-filter: var(--backdrop-blur-lg) saturate(180%);
-  border: 1px solid var(--color-border-glass-medium);
+  background: #FF5722;
+  border: none;
   border-radius: var(--radius-full);
-  /* Mobile: smaller padding */
   padding: 0.75rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: var(--transition-base);
+  transition: all 0.3s ease;
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
+  box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
 }
 
 @media (min-width: 480px) {
@@ -338,19 +330,20 @@
 
 .cta-button:hover,
 .cta-button:focus {
-  background: var(--color-bg-glass-hover);
-  border-color: var(--color-border-glass-strong);
+  background: #E64A19;
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 87, 34, 0.4);
 }
 
 .cta-button:active {
+  background: #D84315;
   transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(255, 87, 34, 0.3);
 }
 
 .cta-button h4 {
-  color: var(--color-text-primary);
+  color: #FFFFFF;
   font-weight: var(--font-weight-semibold);
-  /* Mobile: 14px */
   font-size: var(--font-size-md);
   white-space: nowrap;
   margin: 0;
@@ -395,9 +388,7 @@
   box-shadow: 0 0 30px -10px var(--color-shadow-purple);
   padding: var(--space-md) var(--space-lg);
   width: 100%;
-  /* Mobile: auto height, expands with content */
   height: auto;
-  /* Mobile: max-height instead of fixed height */
   max-height: 400px;
   background: linear-gradient(135deg, var(--color-gradient-card-from) 0%, var(--color-gradient-card-to) 100%);
   overflow-y: auto;
@@ -473,7 +464,6 @@
 }
 
 .note-title {
-  /* Mobile: 16px */
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-semibold);
   color: white;
@@ -488,7 +478,6 @@
 }
 
 .note-text {
-  /* Mobile: 12px */
   font-size: var(--font-size-sm);
   color: var(--color-text-light);
   line-height: 1.6;
@@ -503,7 +492,6 @@
 }
 
 .bullet-point {
-  /* Mobile: 12px */
   font-size: var(--font-size-sm);
   color: var(--color-text-lighter);
   padding-left: var(--space-sm);
@@ -528,7 +516,6 @@
 }
 
 .section-title {
-  /* Mobile: 14px */
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-semibold);
   color: white;
@@ -544,7 +531,6 @@
 }
 
 .subsection-title {
-  /* Mobile: 13px */
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   color: var(--color-primary-lighter);
@@ -562,7 +548,6 @@
 /* Cell Images */
 .cell-images {
   display: flex;
-  /* Mobile: stack vertically */
   flex-direction: column;
   gap: var(--space-md);
   justify-content: center;
@@ -600,10 +585,8 @@
 }
 
 .cell-item img {
-  /* Mobile: fluid width */
   width: 100%;
   max-width: 120px;
-  /* Mobile: aspect ratio maintained */
   height: auto;
   aspect-ratio: 4 / 3;
   object-fit: contain;
@@ -625,7 +608,6 @@
 }
 
 .cell-item span {
-  /* Mobile: 10px */
   font-size: 0.625rem;
   color: var(--color-text-muted);
   font-family: 'Poppins', sans-serif;
@@ -641,12 +623,10 @@
 /* Comparison Table */
 .comparison-table {
   width: 100%;
-  /* Mobile: smaller font */
   font-size: 0.625rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-border-glass-light);
   overflow: hidden;
-  /* Mobile: allow horizontal scroll if needed */
   overflow-x: auto;
   margin: var(--space-md) 0;
   font-family: 'Poppins', sans-serif;
@@ -671,7 +651,6 @@
 }
 
 .comparison-table th {
-
   padding: 0.375rem 0.5rem;
   text-align: left;
   color: var(--color-primary-lighter);
@@ -706,7 +685,6 @@
 }
 
 .comparison-table td {
-
   padding: 0.3rem 0.5rem;
   border-right: 1px solid var(--color-border-glass-light);
   vertical-align: top;
@@ -733,12 +711,10 @@
   border-right: none;
 }
 
-
 .divider {
   border-top: 1px solid var(--color-border-glass-light);
   margin: var(--space-sm) 0;
 }
-
 
 .formula-box {
   margin: var(--space-sm) auto;
@@ -757,7 +733,6 @@
 }
 
 .formula-label {
-
   font-size: 0.625rem;
   color: var(--color-text-muted);
   margin-bottom: var(--space-xs);
@@ -771,7 +746,6 @@
 }
 
 .formula {
-
   font-size: var(--font-size-xs);
   font-family: 'Courier New', 'Consolas', monospace;
   color: white;
@@ -785,9 +759,7 @@
   }
 }
 
-
 .highlight-box {
-
   font-size: var(--font-size-xs);
   background: rgba(168, 85, 247, 0.1);
   border-left: 2px solid var(--color-primary-light);
@@ -806,9 +778,6 @@
   }
 }
 
-
-
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -820,7 +789,6 @@
   white-space: nowrap;
   border-width: 0;
 }
-
 
 .skip-link {
   position: absolute;
@@ -839,9 +807,7 @@
   left: var(--space-sm);
 }
 
-
 @media print {
-
   *,
   *::before,
   *::after {
@@ -881,7 +847,6 @@
   }
 }
 
-
 @media (prefers-contrast: high) {
   :root {
     --color-border-glass: rgba(255, 255, 255, 0.3);
@@ -897,20 +862,14 @@
   }
 }
 
-
-
 @supports (-webkit-appearance: none) {
   .notes-card {
-   
     -webkit-overflow-scrolling: touch;
   }
 }
-
 
 @-moz-document url-prefix() {
   .notes-card {
     scrollbar-width: thin;
   }
 }
-
-
